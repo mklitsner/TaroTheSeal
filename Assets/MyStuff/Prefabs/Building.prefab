@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3246721593523139778}
+  - component: {fileID: 1325960558880318595}
   m_Layer: 0
   m_Name: Building
   m_TagString: Hittable
@@ -36,6 +37,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325960558880318595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246721593523139779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6996b51b2524f5897be32df212e802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingParts: []
 --- !u!1001 &481913692468474104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 5804556449227717574, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5804556449227717574, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
         type: 3}
@@ -286,7 +300,7 @@ PrefabInstance:
     - target: {fileID: 5804556449227717574, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5804556449227717574, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
         type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
+   
     [SerializeField]
         float speed = 0.1f;
 
@@ -32,17 +33,20 @@ public class Bubble : MonoBehaviour
     }
 
 
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Hittable")
+        if (other.CompareTag("Hittable"))
         {
-            
+
             IDamageable damageable;
             if (other.TryGetComponent(out damageable))
             {
                 damageable.DoDamage();
+                Debug.Log("Damaged");
             }
+
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

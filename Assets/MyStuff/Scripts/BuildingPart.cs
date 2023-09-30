@@ -45,6 +45,6 @@ public class BuildingPart : MonoBehaviour, IDamageable
     public void DoDamage()
     {
         isDamaged = true;
-
+        Debug.Log("Building Damaged");
     }
 }
