@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce9de9a0b772e84589568d58baaa4a5, type: 3}
+  m_Name: SimulationSettings
+  m_EditorClassIdentifier: 
+  m_EnvironmentMode: 0
+  m_EnvironmentPrefab: {fileID: 2327905570123313740, guid: 523cdb1ac75549240a88262374668b33,
+    type: 3}
+  m_SyntheticModeEnvironmentGuid: 523cdb1ac75549240a88262374668b33
+  m_IndependentRecording: {fileID: 7451220477654342660, guid: 40566a2a3e4e2a74db0f68bd7b1eb11a,
+    type: 2}
+  m_WebCamDeviceIndex: 0
+  m_UseSyntheticRecording: 0
+  m_FindAllMatchingDataPerQuery: 0
+  m_AutoResetDevicePose: 0
+  m_AutoSyncWithSceneChanges: 1
+  m_TimeToFinalizeSceneModification: 0.3
+  m_ShowSimulatedEnvironment: 1
+  m_ShowSimulatedData: 1
+  m_SyntheticPrefabs:
+  - {fileID: 4033279824830409645, guid: 909f2ab63b9b4ea4b8fe717106d824ad, type: 3}
+  - {fileID: 5430835068141665080, guid: 030743e0e0ba25f49809730c95e0242a, type: 3}
+  - {fileID: 3151540597861133246, guid: a9d8488c48ba60b41a63864340bb61f5, type: 3}
+  - {fileID: 8387024946830786749, guid: 85da2a5282728d246aaa86eacf8d90ac, type: 3}
+  - {fileID: 9042503003386982851, guid: d36624cde1e5de34c91e840d13da1281, type: 3}
+  - {fileID: 741052542749489430, guid: 8e51353539f40a54eab0848e2f625f6d, type: 3}
+  - {fileID: 2529763256923072192, guid: d3c57f4950c082248bd099f65d1a0f3d, type: 3}
+  - {fileID: 2327905570123313740, guid: 523cdb1ac75549240a88262374668b33, type: 3}
+  m_SyntheticRecordings:
+  - {fileID: 7451220477654342660, guid: 40566a2a3e4e2a74db0f68bd7b1eb11a, type: 2}
+  - {fileID: 4360023052754472758, guid: 06d6fe6dd5a38c949bc27a84a8bd4bfd, type: 2}
+  - {fileID: 8377579048678229361, guid: d6f5e529ab7ed2448850470ceae80773, type: 2}
+  - {fileID: 7722775629433841923, guid: 096443d19364c9a4fb1542571087a753, type: 2}
+  - {fileID: -6865917388989604622, guid: 184f9d857b8176342a80de1831f434d3, type: 2}
+  - {fileID: -5323634614540303478, guid: f0b2d8ac7012c7144a73db4e2c23caa9, type: 2}
+  - {fileID: -2527571795405754643, guid: 8bcfbdb8ca6bc164e92017e904f0baeb, type: 2}
+  - {fileID: 6289526993872342364, guid: b86d12a842c774645976d6935d3e0011, type: 2}
+  m_UserFacingEnvironmentMode: 1
+  m_WorldFacingEnvironmentMode: 0
