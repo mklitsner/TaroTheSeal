@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
+    [SerializeField]
+        float speed = 0.1f;
 
+    float lifeTime = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        lifeTime = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward, Space.Self);
+        if (lifeTime > 0)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+
+            lifeTime -= Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 
@@ -23,7 +36,13 @@ public class Bubble : MonoBehaviour
     {
         if(other.tag == "Hittable")
         {
-            Destroy(this);
+            
+            IDamageable damageable;
+            if (other.TryGetComponent(out damageable))
+            {
+                damageable.DoDamage();
+            }
         }
+        Destroy(gameObject);
     }
 }

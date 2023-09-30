@@ -189,7 +189,7 @@ Transform:
   m_Children:
   - {fileID: 1332866432}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90457142
 GameObject:
@@ -235,6 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e9cb82b16f84aa48cc6f1a8bb58ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 2445731699361493549, guid: b4b17cffe179e4c3ebfe93f75b5cc0bc,
+    type: 3}
+  ShootLocation: {fileID: 90457143}
 --- !u!4 &275314717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3246721593523139778, guid: 895e9f6410b3e4253bdd6fb685d72a9b,
@@ -334,7 +337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &309505191
 MonoBehaviour:
@@ -621,7 +624,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638725350
 GameObject:
@@ -632,6 +635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 638725351}
+  - component: {fileID: 638725352}
   m_Layer: 0
   m_Name: Seal
   m_TagString: Untagged
@@ -647,7 +651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638725350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.153, z: 0.335}
+  m_LocalPosition: {x: 0, y: -0.153, z: 0.33500004}
   m_LocalScale: {x: 1.6806, y: 1.6806, z: 1.6806}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -656,6 +660,33 @@ Transform:
   m_Father: {fileID: 1332866432}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &638725352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638725350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91cf4a76951d4204912dafab9c5f792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 90457144}
+        m_TargetAssemblyTypeName: BubbleShooter, Assembly-CSharp
+        m_MethodName: ShootBubble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1332866429
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +1028,7 @@ Transform:
   m_Children:
   - {fileID: 342997303}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1879086645
 MonoBehaviour:

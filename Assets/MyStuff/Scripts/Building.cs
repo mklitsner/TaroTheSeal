@@ -1,34 +1,48 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
-public class Building : MonoBehaviour, IDamageable
+public class Building : MonoBehaviour
 {
-    [SerializeField] int starterHealth=10;
-    [SerializeField] int currHealth;
-
+    public List<BuildingPart> BuildingParts;
 
     private void Start()
     {
-        currHealth = starterHealth;
+        BuildingParts = GetComponentsInChildren<BuildingPart>().ToList();
     }
 
-
-    public void DoDamage(int amount)
+    public void Update()
     {
-        currHealth -= amount;
 
-        if (currHealth < 0) currHealth = 0;
+        for (int i = 0; i < BuildingParts.Count; i++)
+        {
+            if (!BuildingParts[i].isLost) {
 
-        if (currHealth == 0)
-        {
-            Console.WriteLine("building is destroyed");
-            Destroy(this);
+                if (BuildingParts[i].isDamaged)
+                {
+
+                    BuildingParts[i].TickDamage();
+                }
+
+                if (BuildingParts[i].currHealth < 0)
+                {
+                    //destroy the building from the damage part to the top
+                    for (int j = i; j < BuildingParts.Count; j++)
+                    {
+                        if(!BuildingParts[j].isLost)
+                            BuildingParts[j].LosePart();                       
+                    }
+                }
+            }
+
         }
-        else
-        {
-            Console.WriteLine($"building damaged, {currHealth} health remaining");
-        }
+
+
     }
+
+
+
 }
 
