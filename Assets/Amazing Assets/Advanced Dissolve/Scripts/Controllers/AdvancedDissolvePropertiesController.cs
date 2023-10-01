@@ -20,7 +20,7 @@ namespace AmazingAssets.AdvancedDissolve
         public AdvancedDissolve.AdvancedDissolveProperties.Edge.UVDistortion edgeUVDistortion = new AdvancedDissolve.AdvancedDissolveProperties.Edge.UVDistortion();
         public AdvancedDissolve.AdvancedDissolveProperties.Edge.GlobalIllumination edgeGlobalIllumination = new AdvancedDissolve.AdvancedDissolveProperties.Edge.GlobalIllumination();
 
-
+        
 
 
         protected override void Awake()
