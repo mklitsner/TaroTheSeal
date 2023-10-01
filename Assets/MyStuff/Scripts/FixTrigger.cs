@@ -12,8 +12,13 @@ public class FixTrigger : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            isFlownThrough = true;
-            buildingPart.FixDamage();
+            SealControl seal;
+            if(other.TryGetComponent<SealControl>(out seal))
+            {
+                isFlownThrough = true;
+                buildingPart.FixDamage(seal.spinAction);
+            }
+           
         }
     }
 

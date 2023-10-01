@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8744038926630322611
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -8,19 +21,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: destroyed building
-  m_Shader: {fileID: 4800000, guid: 68c74324cec334e40a80fe45963b7a4c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _AD_CUTOUT_GEOMETRIC_COUNT_ONE
-  - _AD_CUTOUT_GEOMETRIC_TYPE_NONE
-  - _AD_CUTOUT_STANDARD_SOURCE_MAPS_MAPPING_TYPE_DEFAULT
-  - _AD_CUTOUT_STANDARD_SOURCE_NONE
-  - _AD_EDGE_ADDITIONAL_COLOR_NONE
-  - _AD_EDGE_BASE_SOURCE_NONE
-  - _AD_EDGE_UV_DISTORTION_SOURCE_DEFAULT
-  - _AD_GLOBAL_CONTROL_ID_NONE
-  - _AD_STATE_DISABLED
-  m_LightmapFlags: 4
+  m_InvalidKeywords: []
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1

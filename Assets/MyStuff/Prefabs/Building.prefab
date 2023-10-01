@@ -57,6 +57,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3246721593523139778}
     m_Modifications:
+    - target: {fileID: -3727020530534344342, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
+        type: 3}
+      propertyPath: FixedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d258f431297746219dcbc65ee771464, type: 3}
+    - target: {fileID: -3727020530534344342, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
+        type: 3}
+      propertyPath: damagedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bddde1e2de16342fa9cfeec71f442904, type: 3}
     - target: {fileID: 5804556449227717573, guid: 18f6893eb0c5543a8ba3c80a9a775c37,
         type: 3}
       propertyPath: m_Name

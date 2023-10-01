@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,13 @@ public class SealControl : MonoBehaviour
     private Vector3 previousPosition;
     private Vector3 localVelocity;
 
+    float turnSpeed = 2f; // Speed at which "Turn" changes, adjust as needed
+    float targetTurnValue; // Target value to which "Turn" will change
+
     private void Start()
     {
         canShoot = true;
+        spinAction += Spin;
     }
 
     void Update()
@@ -46,14 +51,15 @@ public class SealControl : MonoBehaviour
 
         }
 
-        
-        float turnValue = Map(localVelocity.x, -2, 2, 0, 1);
 
+        float currentTurnValue = animator.GetFloat("Turn");
+        targetTurnValue = Map(localVelocity.x, -0.5f, 0.5f, 0, 1);
 
-        animator.SetFloat("Turn", turnValue);
+        // Interpolate current value to target value
+        float newTurnValue = Mathf.Lerp(currentTurnValue, targetTurnValue, Time.deltaTime * turnSpeed);
 
-        Debug.Log("Angular Velocity: "+ localVelocity);
-        Debug.Log("Velocity: " + localVelocity);
+        animator.SetFloat("Turn", newTurnValue);
+
 
     }
 
@@ -70,7 +76,10 @@ public class SealControl : MonoBehaviour
         return (value - sourceMin) * (destMax - destMin) / (sourceMax - sourceMin) + destMin;
     }
 
+    public Action spinAction;
 
-
-
+    public void Spin()
+    {
+        animator.SetTrigger("Spin");
+    }
 }

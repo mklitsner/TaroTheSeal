@@ -19,7 +19,7 @@ public class City : MonoBehaviour
     private IEnumerator LerpToZero()
     {
         float elapsedTime = 0f;
-        float duration = 1f;
+        float duration = 3f;
         float startValue = 1f;
         float endValue = 0f;
 

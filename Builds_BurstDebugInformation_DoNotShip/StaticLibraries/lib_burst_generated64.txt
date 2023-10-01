@@ -132,6 +132,7 @@ Library: lib_burst_generated64
 --compilation-defines=MODULE_URP_ENABLED
 --compilation-defines=USE_LEGACY_INPUT_HELPERS
 --compilation-defines=UNITY_INPUT_SYSTEM
+--compilation-defines=INCLUDE_POST_PROCESSING
 --compilation-defines=INCLUDE_LEGACY_INPUT_HELPERS
 --compilation-defines=INCLUDE_RENDER_PIPELINES_UNIVERSAL
 --compilation-defines=INCLUDE_AR_FOUNDATION
@@ -146,6 +147,7 @@ Library: lib_burst_generated64
 --compilation-defines=ENABLE_BURST_1_0_0_OR_NEWER
 --compilation-defines=USING_ANIMATION_MODULE
 --compilation-defines=USING_PHYSICS2D_MODULE
+--compilation-defines=UNIVERSAL_1_0_0_OR_NEWER
 --compilation-defines=PACKAGE_INPUT_SYSTEM_EXISTS
 --compilation-defines=PACKAGE_INPUT_SYSTEM_1_2_0_OR_NEWER_EXISTS
 --compilation-defines=MODULE_AI_EXISTS
@@ -182,6 +184,7 @@ Library: lib_burst_generated64
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.InputSystem.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.VisualScripting.State.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll
+--root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.Postprocessing.Runtime.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.VisualScripting.Flow.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.XR.ARKit.FaceTracking.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.AR.Companion.Core.dll
@@ -209,8 +212,8 @@ Library: lib_burst_generated64
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.ListViewFramework.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.Services.Core.Device.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.MARS.Providers.ARFoundation.dll
---root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.XRTools.ModuleLoader.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Assembly-CSharp.dll
+--root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.XRTools.ModuleLoader.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.Services.Core.Analytics.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.Jobs.dll
 --root-assembly=/Users/macbookpro/Documents/Unity/TaroTheSeal/Temp/StagingArea/Data/Managed/Unity.XR.InteractionSubsystems.dll
