@@ -69,12 +69,11 @@ public class Bubble : MonoBehaviour
         }
         else if(other.CompareTag("Enemy"))
         {
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            rb.useGravity = false;
-            rb.isKinematic = true;
             other.transform.parent = transform;
             other.transform.localPosition = Vector3.zero;
+            other.GetComponent<Projectile>().StopAllCoroutines();
             GetComponent<Collider>().enabled = false;
+            hasCaughtEnemy = true;
         }
     }
 }

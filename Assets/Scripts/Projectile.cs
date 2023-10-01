@@ -9,9 +9,14 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private GameObject missile;
     [SerializeField] private ParticleSystem smoke;
+    public float speed=0.1f;
+    private bool hasTriggered;
 
-    private void Awake()
+    public void Launch(Transform _targetTransform, Transform _launchPoint)
     {
+        targetTransform = _targetTransform;
+        launchPoint = _launchPoint;
+
         float v0;
         float time;
         float angle;
@@ -29,13 +34,34 @@ public class Projectile : MonoBehaviour
         while(t < time)
         {
             transform.position = ProjectileLibrary.GetPositionAtTime(launchPoint.position, direction, v0, angle, t);
-            Vector3 nextPosition = ProjectileLibrary.GetPositionAtTime(launchPoint.position, direction, v0, angle, t + Time.deltaTime);
+            Vector3 nextPosition = ProjectileLibrary.GetPositionAtTime(launchPoint.position, direction, v0, angle, t + Time.deltaTime* speed);
             transform.rotation = Quaternion.LookRotation(nextPosition - transform.position, Vector3.up);
-            t += Time.deltaTime;
+            t += Time.deltaTime* speed;
             yield return null;
         }
         Destroy(missile);
         smoke.Stop();
         Destroy(gameObject, 10f);
+    }
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (hasTriggered) return;
+
+        if (other.CompareTag("Hittable"))
+        {
+            hasTriggered = true;
+
+            IDamageable damageable;
+            if (other.TryGetComponent(out damageable))
+            {
+                damageable.DoDamage(transform.position);
+                Debug.Log("PenguinHit");
+            }
+
+            Destroy(gameObject);
+        }
     }
 }
