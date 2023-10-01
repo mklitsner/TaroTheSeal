@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MoveIgloo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform launchPoint;
+    [SerializeField] private Transform targetTransform; 
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Vector3 direction = ProjectileLibrary.GetDirection(targetTransform.position, launchPoint.position);
+        float height = ProjectileLibrary.GetHeight(targetTransform.position, launchPoint.position);
+
+        Vector3 highestPointInProjectile = new Vector3(direction.x, height, direction.z);
+        transform.rotation = Quaternion.LookRotation(highestPointInProjectile, Vector3.up);
     }
 }
