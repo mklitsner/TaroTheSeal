@@ -41,8 +41,8 @@ namespace AmazingAssets.AdvancedDissolve.ExampleScripts
             AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.WidthGeometric, 0.2f);
 
             //Set 'Edge' color and its intensity
-            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.Color, new Color(Random.value, Random.value, Random.value));
-            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.ColorIntensity, 1.5f);
+            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.Color, Random.ColorHSV(0f, 1f, 1, 1, 1, 1));
+            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.ColorIntensity, Random.Range(4f, 6f));
 
 
             //Add current material to the controller's materials array

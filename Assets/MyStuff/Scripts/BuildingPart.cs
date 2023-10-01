@@ -9,7 +9,9 @@ public class BuildingPart : MonoBehaviour, IDamageable
     public bool isDamaged;
     public bool isLost;
     [SerializeField] MeshRenderer meshRenderer;
-
+    [SerializeField] GameObject Healthy;
+    [SerializeField] GameObject Damaged;
+    [SerializeField] FixTrigger[] fixTriggers;
 
     private void Start()
     {
@@ -20,12 +22,30 @@ public class BuildingPart : MonoBehaviour, IDamageable
     {
         currHealth = starterHealth;
         meshRenderer.material.color = Color.white;
+        Damaged.SetActive(false);
+        Healthy.SetActive(true);
+        foreach (var item in fixTriggers)
+        {
+            item.onReset();
+        }
     }
 
     public void FixDamage()
     {
-        isDamaged = false;
-        Reset();
+        bool isFixed = true;
+        foreach (var item in fixTriggers)
+        {
+            if (!item.isFlownThrough)
+            {
+                isFixed = false;
+            }
+        }
+
+        if (isFixed)
+        {
+            isDamaged = false;
+            Reset();
+        }
     }
 
     public void TickDamage()
@@ -46,5 +66,7 @@ public class BuildingPart : MonoBehaviour, IDamageable
     {
         isDamaged = true;
         Debug.Log("Building Damaged");
+        Damaged.SetActive(true);
+        Healthy.SetActive(false);
     }
 }

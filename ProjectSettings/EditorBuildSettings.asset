@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PlacementExample.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/TaroTheSealMain.unity
+    guid: 1c84455af54b94857a5dd6fc14ef0e92
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 9195e1ddcae824fbab6e442759e8d8be,
       type: 2}

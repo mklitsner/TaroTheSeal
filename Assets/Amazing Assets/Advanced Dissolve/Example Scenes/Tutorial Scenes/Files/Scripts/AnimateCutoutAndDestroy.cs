@@ -24,10 +24,10 @@ namespace AmazingAssets.AdvancedDissolve.ExampleScripts
             AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Cutout.Standard.UpdateLocalProperty(material, AdvancedDissolveProperties.Cutout.Standard.Property.Clip, 0);
 
             //Assign random edge color
-            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.Color, new Color(Random.value, Random.value, Random.value));
+            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.Color, Random.ColorHSV(0f, 1f, 1, 1, 1, 1));
 
             //Randomize intensity
-            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.ColorIntensity, Random.Range(0f, 2f));
+            AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.ColorIntensity, Random.Range(4f, 7f));
 
             //Set edge shape
             AmazingAssets.AdvancedDissolve.AdvancedDissolveProperties.Edge.Base.UpdateLocalProperty(material, AdvancedDissolveProperties.Edge.Base.Property.Shape, AdvancedDissolveProperties.Edge.Base.Shape.Smoother);

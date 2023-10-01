@@ -37,9 +37,9 @@ float ADBlendGradientEdges(float a, float b, float c, float d)
 }
 
  inline float ProjectT(float3 origin, float3 normal, float height, float3 vertex)
-            {
-               return saturate(dot(vertex - origin, normal) / height); 
-            }
+{
+	return saturate(dot(vertex - origin, normal) / height); 
+}
 
 
 #if defined(ADVANCED_DISSOLVE_CUTOUT_GEOMETRIC_ENABLED)
@@ -940,7 +940,7 @@ float AdvancedDissolveAlbedoEmission(float4 cutoutSource, float4 baseAlbedo, ino
 				float3 c2 = lerp(float3(0, 0, 0), VALUE_EDGE_ADDITIONAL_COLOR.rgb, VALUE_EDGE_ADDITIONAL_COLOR_TRANSPARENCY);
 
 				edgeColor = lerp(float4(c1, edgeColor.a), float4(c2, VALUE_EDGE_ADDITIONAL_COLOR_TRANSPARENCY), lerpValue);
-				colorIntensity = lerp(colorIntensity, VALUE_EDGE_ADDITIONAL_COLOR_INTENSITY.y * VALUE_EDGE_ADDITIONAL_COLOR_TRANSPARENCY, lerpValue);
+				colorIntensity = lerp(colorIntensity, VALUE_EDGE_ADDITIONAL_COLOR_INTENSITY .y * VALUE_EDGE_ADDITIONAL_COLOR_TRANSPARENCY, lerpValue);
 
 			#elif defined(_AD_EDGE_ADDITIONAL_COLOR_USER_DEFINED)
 			

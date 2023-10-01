@@ -638,7 +638,7 @@ namespace AmazingAssets.AdvancedDissolveEditor
                                     {
                                         DrawSubGroupHeader("Additional Color");
                                         using (new EditorGUIHelper.EditorGUIIndentLevel(1))
-                                        {
+                                        {                                            
                                             using (new EditorGUIHelper.GUIBackgroundColor(GUI.skin.settings.selectionColor))
                                             {
                                                 if (hasBakedKeywords)
@@ -1311,7 +1311,7 @@ namespace AmazingAssets.AdvancedDissolveEditor
                     script.globalControlID = globalControlID;
 
                     if (globalControlID == AdvancedDissolveKeywords.GlobalControlID.None)
-                        script.materials = new List<Material>() { material };
+                        script.materials = new List<Material>(){ material };
 
 
                     SceneView.RepaintAll();
