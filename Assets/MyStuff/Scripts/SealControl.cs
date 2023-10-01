@@ -47,7 +47,8 @@ public class SealControl : MonoBehaviour
         }
 
         
-        float turnValue = Map(localVelocity.x, -4, 4, 0, 1);
+        float turnValue = Map(localVelocity.x, -2, 2, 0, 1);
+
 
         animator.SetFloat("Turn", turnValue);
 

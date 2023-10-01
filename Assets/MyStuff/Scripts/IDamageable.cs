@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    void DoDamage();
+    public void DoDamage();
+    public void DoDamage(Vector3 hitPosition);
 }
 

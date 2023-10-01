@@ -9,6 +9,7 @@ public class Bubble : MonoBehaviour
         float speed = 0.1f;
 
     float lifeTime = 1;
+    private bool hasTriggered;
 
     // Start is called before the first frame update
     void Start()
@@ -36,13 +37,16 @@ public class Bubble : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hasTriggered) return;
+
         if (other.CompareTag("Hittable"))
         {
+            hasTriggered = true;
 
             IDamageable damageable;
             if (other.TryGetComponent(out damageable))
             {
-                damageable.DoDamage();
+                damageable.DoDamage(transform.position);
                 Debug.Log("Damaged");
             }
 
