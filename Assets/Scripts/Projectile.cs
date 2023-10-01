@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private Transform launchPoint;
-    [SerializeField] private Transform targetTransform;
+    [SerializeField] public Transform launchPoint;
+    [SerializeField] public Transform targetTransform;
 
-    private void Update()
+    [SerializeField] private GameObject missile;
+    [SerializeField] private ParticleSystem smoke;
+
+    private void Awake()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            float v0;
-            float time;
-            float angle;
-            float height;
-            Vector3 groundDirectionNorm;
+        float v0;
+        float time;
+        float angle;
+        float height;
+        Vector3 groundDirectionNorm;
 
-            ProjectileLibrary.CalculatePathFromLaunchToTarget(targetTransform.position, launchPoint.position, out groundDirectionNorm, out height, out v0, out time, out angle);
-            StopAllCoroutines();
-            StartCoroutine(ProjectileMovement(groundDirectionNorm, height, v0, angle, time));
-        }
+        ProjectileLibrary.CalculatePathFromLaunchToTarget(targetTransform.position, launchPoint.position, out groundDirectionNorm, out height, out v0, out time, out angle);
+        StopAllCoroutines();
+        StartCoroutine(ProjectileMovement(groundDirectionNorm, height, v0, angle, time));
     }
 
     IEnumerator ProjectileMovement(Vector3 direction, float height, float v0, float angle, float time)
@@ -34,5 +34,8 @@ public class Projectile : MonoBehaviour
             t += Time.deltaTime;
             yield return null;
         }
+        Destroy(missile);
+        smoke.Stop();
+        Destroy(gameObject, 10f);
     }
 }
