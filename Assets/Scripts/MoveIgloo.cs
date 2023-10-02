@@ -7,6 +7,8 @@ public class MoveIgloo : MonoBehaviour
     [SerializeField] private Transform launchPoint;
 private Transform targetTransform;
     [SerializeField] GameObject projectilePrefab;
+   public RotateIgloo rotateIgloo;
+    public AudioSource source;
 
     void Update()
     {
@@ -22,7 +24,8 @@ private Transform targetTransform;
     public void SetTargetAndShoot(Transform target)
     {
         targetTransform = target;
-        GameObject projectile = Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity,null);
         projectile.GetComponent<Projectile>().Launch(target, launchPoint);
+        source.Play();
     }
 }

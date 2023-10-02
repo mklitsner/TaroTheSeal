@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateIgloo : MonoBehaviour
 {
-    [Range(0f, 90f)]
+    [Range(0f, 360f)]
     public float angleRange = 45f;
 
     [Range(0f, 10f)]
@@ -21,6 +21,11 @@ public class RotateIgloo : MonoBehaviour
         // {
         //     StartCoroutine(RandomRotate());
         // }
+    }
+
+    public void CallRotate()
+    {
+        StartCoroutine(RandomRotate());
     }
 
     IEnumerator RandomRotate()

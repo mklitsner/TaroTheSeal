@@ -9,7 +9,7 @@ public class Bubble : MonoBehaviour
         float speed = 0.1f;
 
     [SerializeField]
-    float upSpeed = 0.1f;
+    float upSpeed = 0.7f;
 
     float lifeTime = 1;
     private bool hasTriggered;
@@ -69,10 +69,11 @@ public class Bubble : MonoBehaviour
         }
         else if(other.CompareTag("Enemy"))
         {
-            transform.localScale *= 2;
+            transform.localScale *= 10;
             transform.position = other.transform.position;
             other.transform.parent = transform;
             other.GetComponent<Projectile>().StopAllCoroutines();
+            other.GetComponent<Projectile>().OnCaught();
             GetComponent<Collider>().enabled = false;
             hasCaughtEnemy = true;
             FindObjectOfType<GameplayManager>().CaughtPenguin();

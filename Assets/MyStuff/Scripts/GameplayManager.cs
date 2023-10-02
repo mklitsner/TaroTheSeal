@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -15,17 +16,39 @@ public class GameplayManager : MonoBehaviour
 
     int Wave = 0;
     bool inWave = false;
+    bool startScreen=true;
+    public GameObject[] Onboarding;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        StartGameContainer.SetActive(true);
+        StatsContainer.SetActive(false);
+        waveContainer.SetActive(false);
+        foreach (var item in Onboarding)
+        {
+            item.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (startScreen)
+        {
+            if (Input.GetMouseButtonDown(0)) // 0 represents the left mouse button or a single touch tap
+            {
+                StartGameContainer.SetActive(false);
+                Onboarding[0].SetActive(true);
+                startScreen = false;
+            }
+        }
+
+
+
+
         if (Buildings == null) return;
 
 
@@ -44,14 +67,21 @@ public class GameplayManager : MonoBehaviour
         {
             //GAMEOVER
             inWave = false;
+            GameOverContainer.SetActive(true);
         }
     }
 
     public void BeginGame()
     {
+        startScreen = false;
+        StartGameContainer.SetActive(false);
+        StartGameContainer.SetActive(false);
+        Onboarding[0].SetActive(true);
         Buildings = FindObjectsOfType<Building>();
         igloos = FindObjectsOfType<MoveIgloo>();
         looper.isStart = true;
+        Onboarding[0].SetActive(false);
+        StatsContainer.SetActive(true);
         StartCoroutine(IntoNextWave());
     }
 
@@ -59,17 +89,17 @@ public class GameplayManager : MonoBehaviour
     IEnumerator IntoNextWave()
     {
         Wave++;
-        waveText.enabled = true;
+        waveContainer.SetActive(true);
         looper.countDownAudio.Play();
-        waveText.text = "Wave " + Wave;
+        waveText.text = Wave.ToString();
         int countdown = 3; // Start countdown from 3
-        while (countdown > 0)
+        while (countdown > -1)
         {
             countdownText.text = countdown.ToString(); // Display current countdown value
             yield return new WaitForSeconds(1f); // Wait for one second
             countdown--; // Decrease the countdown
         }
-        countdownText.text = "0"; // Display 0 at the end of countdown
+        waveContainer.SetActive(false);
         StartWave(); // Call StartWave function when countdown reaches 0
     }
 
@@ -83,6 +113,7 @@ public class GameplayManager : MonoBehaviour
         {
             int randPart = Random.Range(0, currParts.Length - 1);
             igloos[i].SetTargetAndShoot(currParts[randPart].transform);
+            igloos[i].rotateIgloo.CallRotate();
         }
     }
 
@@ -90,14 +121,19 @@ public class GameplayManager : MonoBehaviour
     public void StartWave()
     {
         inWave = true;
-        StartCoroutine(WaveCountDown(10+10*Wave));
+        StartCoroutine(WaveCountDown(10+5*Wave));
     }
 
 
-    public Text timerText; // Reference to the UI Text component
-    public Text waveText;
-    public Text countdownText;
-    public Text amountText;
+    public TMP_Text timerText; // Reference to the UI Text component
+    public TMP_Text waveText;
+    public GameObject waveContainer;
+    public TMP_Text countdownText;
+    public TMP_Text caughtText;
+    public TMP_Text amountText;
+    public GameObject GameOverContainer;
+    public GameObject StartGameContainer;
+    public GameObject StatsContainer;
     public int timeInMinutes = 1; // Set your timer in minutes
 
     IEnumerator WaveCountDown(int amount)
@@ -116,10 +152,7 @@ public class GameplayManager : MonoBehaviour
             CaughtText(amount);
 
             // Update the UI Text component
-            timerText.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
-            Debug.Log("totalTime:" + totalTimeInSeconds);
-            Debug.Log("next shoot time:" + nextShootTime);
-            Debug.Log("shoot interval:" + shootInterval);
+            timerText.text = string.Format("{0:D1}:{1:D2}", minutes, seconds);
             // Check if it's time to shoot a penguin
             if (totalTimeInSeconds <= nextShootTime)
             {
@@ -140,7 +173,8 @@ public class GameplayManager : MonoBehaviour
 
     private void CaughtText(int amount)
     {
-        amountText.text = caughtinWave + "/" + amount;
+        amountText.text = amount.ToString();
+        caughtText.text = caughtinWave.ToString();
     }
 
     int caughtinWave;

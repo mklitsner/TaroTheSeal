@@ -16,7 +16,8 @@ public class SealControl : MonoBehaviour
 
     float turnSpeed = 2f; // Speed at which "Turn" changes, adjust as needed
     float targetTurnValue; // Target value to which "Turn" will change
-
+    public AudioSource source;
+    public AudioClip[] shootClips;
     private void Start()
     {
         canShoot = true;
@@ -38,6 +39,8 @@ public class SealControl : MonoBehaviour
             onTap.Invoke(); // Trigger the UnityEvent
             ShootCooldown();
             animator.SetTrigger("Shoot");
+            AudioClip clip = shootClips[UnityEngine.Random.Range(0, shootClips.Length-1)];
+            source.PlayOneShot(clip);
         }
 
 
