@@ -74,6 +74,7 @@ public class Bubble : MonoBehaviour
             other.GetComponent<Projectile>().StopAllCoroutines();
             GetComponent<Collider>().enabled = false;
             hasCaughtEnemy = true;
+            FindObjectOfType<GameplayManager>().CaughtPenguin();
         }
     }
 }

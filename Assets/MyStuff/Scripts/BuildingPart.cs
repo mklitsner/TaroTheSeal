@@ -110,6 +110,7 @@ public class BuildingPart : MonoBehaviour, IDamageable
         col.enabled = false;
         source.PlayOneShot(DestroyClip);
         this.enabled = false;
+
     }
 
 
