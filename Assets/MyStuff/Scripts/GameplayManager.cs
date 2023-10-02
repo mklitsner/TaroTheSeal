@@ -8,6 +8,7 @@ public class GameplayManager : MonoBehaviour
 {
     public Building[] Buildings { get; private set; }
     public MoveIgloo[] igloos;
+    public AudioLooper looper;
 
 
     float bteweenShotTime = 3;
@@ -50,7 +51,8 @@ public class GameplayManager : MonoBehaviour
     {
         Buildings = FindObjectsOfType<Building>();
         igloos = FindObjectsOfType<MoveIgloo>();
-        IntoNextWave();
+        looper.isStart = true;
+        StartCoroutine(IntoNextWave());
     }
 
 
@@ -58,18 +60,17 @@ public class GameplayManager : MonoBehaviour
     {
         Wave++;
         waveText.enabled = true;
-
+        looper.countDownAudio.Play();
         waveText.text = "Wave " + Wave;
-
-        int num = 3;
-        while (num > 0)
+        int countdown = 3; // Start countdown from 3
+        while (countdown > 0)
         {
-            //setUItoNumber
-            yield return new WaitForSeconds(1);
-            num--;
+            countdownText.text = countdown.ToString(); // Display current countdown value
+            yield return new WaitForSeconds(1f); // Wait for one second
+            countdown--; // Decrease the countdown
         }
-        waveText.enabled = false;
-        StartWave();
+        countdownText.text = "0"; // Display 0 at the end of countdown
+        StartWave(); // Call StartWave function when countdown reaches 0
     }
 
     public void ShootRandomPenguin()
@@ -95,6 +96,7 @@ public class GameplayManager : MonoBehaviour
 
     public Text timerText; // Reference to the UI Text component
     public Text waveText;
+    public Text countdownText;
     public Text amountText;
     public int timeInMinutes = 1; // Set your timer in minutes
 
@@ -104,8 +106,8 @@ public class GameplayManager : MonoBehaviour
         CaughtText(amount);
         int totalTimeInSeconds = timeInMinutes * 60; // Convert minutes to seconds
         float shootInterval = (float)totalTimeInSeconds / amount; // Calculate the interval between function calls
-        float nextShootTime = 0f; // Time for the next function call
-
+        float nextShootTime = totalTimeInSeconds; // Time for the next function call
+       
         while (totalTimeInSeconds >= 0)
         {
             // Calculate minutes and seconds from total seconds
@@ -115,12 +117,14 @@ public class GameplayManager : MonoBehaviour
 
             // Update the UI Text component
             timerText.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
-
+            Debug.Log("totalTime:" + totalTimeInSeconds);
+            Debug.Log("next shoot time:" + nextShootTime);
+            Debug.Log("shoot interval:" + shootInterval);
             // Check if it's time to shoot a penguin
             if (totalTimeInSeconds <= nextShootTime)
             {
                 ShootRandomPenguin();
-                nextShootTime += shootInterval; // Schedule the next function call
+                nextShootTime -= shootInterval; // Schedule the next function call
             }
 
             // Wait for 1 second

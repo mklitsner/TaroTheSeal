@@ -69,8 +69,9 @@ public class Bubble : MonoBehaviour
         }
         else if(other.CompareTag("Enemy"))
         {
+            transform.localScale *= 2;
+            transform.position = other.transform.position;
             other.transform.parent = transform;
-            other.transform.localPosition = Vector3.zero;
             other.GetComponent<Projectile>().StopAllCoroutines();
             GetComponent<Collider>().enabled = false;
             hasCaughtEnemy = true;
